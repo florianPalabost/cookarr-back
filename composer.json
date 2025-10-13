@@ -13,7 +13,9 @@
         "dedoc/scramble": "^0.12.35",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/tinker": "^2.10.1",
+        "spatie/laravel-json-api-paginate": "^1.16",
+        "spatie/laravel-query-builder": "^6.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.6",
@@ -57,6 +59,12 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+         "ide-helper": [
+            "@php artisan ide-helper:generate -n",
+            "@php artisan ide-helper:models -n",
+            "@php artisan ide-helper:eloquent -n",
+            "@php artisan ide-helper:meta -n"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
