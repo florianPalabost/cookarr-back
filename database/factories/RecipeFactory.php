@@ -21,7 +21,7 @@ class RecipeFactory extends Factory
     {
         return [
             'uuid'         => fake()->uuid(),
-            'user_id'      => User::factory(),
+            'user_id'      => User::query()->inRandomOrder()->first()->id ?? User::factory(),
             'title'        => fake()->sentence(),
             'description'  => fake()->paragraph(),
             'instructions' => fake()->paragraph(),

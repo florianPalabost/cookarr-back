@@ -15,5 +15,5 @@ describe('Models > Recipe', function () {
 
         // Assert
         expect($user)->toBeInstanceOf(User::class);
-    })->only();
+    });
 })->group('models');
