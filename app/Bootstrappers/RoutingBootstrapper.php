@@ -25,7 +25,10 @@ class RoutingBootstrapper
 
     private function registerApiRoutes(): void
     {
-        $this->router->middleware('api')->group(base_path('routes/api.php'));
+        $this->router->middleware('api')->prefix('api')->group([
+            base_path('routes/api.php'),
+            base_path('routes/Api/V1/v1.php'),
+        ]);
     }
 
     private function registerWebRoutes(): void
