@@ -7,6 +7,7 @@ namespace Database\Factories;
 use App\Enums\IngredientCategoryEnum;
 use App\Enums\IngredientUnitEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ingredient>
@@ -21,7 +22,7 @@ class IngredientFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'         => fake()->word(),
+            'name'         => fake()->unique(true)->word() . Str::random(25),
             'default_unit' => fake()->randomElement(IngredientUnitEnum::values()),
             'category'     => fake()->randomElement(IngredientCategoryEnum::values()),
         ];

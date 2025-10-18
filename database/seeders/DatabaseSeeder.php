@@ -25,7 +25,11 @@ class DatabaseSeeder extends Seeder
 
         Ingredient::factory(10)->create();
 
-        // Recipe::factory(10)->create();
+        $recipes = Recipe::factory(10)->create();
+
+        $recipes->each(function (Recipe $recipe) {
+            $recipe->ingredients()->saveMany(Ingredient::factory(5)->make());
+        });
 
         // IngredientRecipe::factory(10)->create();
     }

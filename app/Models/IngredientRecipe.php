@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class IngredientRecipe extends Pivot
 {
+    protected $table = 'ingredient_recipes';
+
     protected $fillable = [
         'quantity',
         'unit',
