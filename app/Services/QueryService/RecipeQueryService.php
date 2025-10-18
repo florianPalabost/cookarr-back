@@ -61,6 +61,7 @@ class RecipeQueryService extends BaseQueryService
     {
         return [
             AllowedInclude::relationship(name: 'ingredients', internalName: 'ingredients'),
+            AllowedInclude::relationship(name: 'user', internalName: 'user'),
         ];
     }
 
