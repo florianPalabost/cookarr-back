@@ -19,6 +19,8 @@ class RecipeResource extends JsonResource
     {
         return [
             // Attributes
+            'id'           => $this->whenHas('id'), // TODO: delete
+
             'uuid'         => $this->whenHas('uuid'),
 
             'user_id'      => $this->whenHas('user_id'),
