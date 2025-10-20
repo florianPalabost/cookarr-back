@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Actions\CreateAuthToken;
-use App\Actions\CreateNewUser;
+use App\Actions\CreateUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\RegisterRequest;
 use App\Http\Resources\V1\UserResource;
@@ -19,7 +19,7 @@ class RegisterController extends Controller
      *
      * @unauthenticated
      */
-    public function __invoke(RegisterRequest $request, CreateNewUser $createNewUserAction, CreateAuthToken $createAuthTokenAction): UserResource
+    public function __invoke(RegisterRequest $request, CreateUser $createNewUserAction, CreateAuthToken $createAuthTokenAction): UserResource
     {
         /** @var array{name: string, email: string, password: string} $input */
         $input = $request->validated();

@@ -26,11 +26,7 @@ class LoginController extends Controller
 
         $user = User::query()->where('email', $input['email'])->firstOrFail();
 
-        // validate password
-        // $this->validatePassword($user, $input['password']);
-
         $accessTokenData = $createAuthTokenAction->handle($user);
-
 
         return UserResource::make($user)->withTokenData($accessTokenData);
     }

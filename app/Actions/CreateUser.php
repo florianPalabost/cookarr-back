@@ -7,7 +7,7 @@ namespace App\Actions;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class CreateNewUser
+class CreateUser
 {
     /**
      * @param array{name: string, email: string, password: string} $input
