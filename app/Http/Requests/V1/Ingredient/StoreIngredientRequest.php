@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\V1\Ingredient;
 
+use App\Enums\IngredientCategoryEnum;
+use App\Enums\IngredientUnitEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreIngredientRequest extends FormRequest
 {
@@ -13,7 +16,7 @@ class StoreIngredientRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +27,9 @@ class StoreIngredientRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'name'         => ['required', 'string', 'max:255', 'unique:ingredients'],
+            'default_unit' => ['required', 'string', 'max:255', Rule::enum(IngredientUnitEnum::class)],
+            'category'     => ['required', 'string', 'max:255', Rule::enum(IngredientCategoryEnum::class)],
         ];
     }
 }
