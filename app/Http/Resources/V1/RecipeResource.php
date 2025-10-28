@@ -29,6 +29,8 @@ class RecipeResource extends JsonResource
 
             'description'  => $this->whenHas('description'),
 
+            // 'difficulty'   => $this->whenHas('difficulty'),
+
             'instructions' => $this->whenHas('instructions'),
 
             'image'        => $this->whenHas('image'),
@@ -44,6 +46,10 @@ class RecipeResource extends JsonResource
             'updated_at'   => $this->whenHas('updated_at'),
 
             // Relationships
+
+            'user'         => UserResource::make($this->whenLoaded('user')),
+
+            'ingredients'  => IngredientResource::collection($this->whenLoaded('ingredients')),
         ];
     }
 }
