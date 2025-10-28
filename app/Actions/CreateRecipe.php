@@ -24,6 +24,7 @@ class CreateRecipe
             'prep_time'    => $input['prep_time'],
             'cook_time'    => $input['cook_time'],
             'servings'     => $input['servings'],
+            // 'difficulty'   => $input['difficulty'],
             'is_public'    => $input['is_public'],
         ]);
 

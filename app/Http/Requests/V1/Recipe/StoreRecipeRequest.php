@@ -32,6 +32,7 @@ class StoreRecipeRequest extends FormRequest
             'cook_time'    => ['sometimes', 'numeric', 'min:0', 'max:999'],
             'servings'     => ['sometimes', 'numeric', 'min:0', 'max:999'],
             'is_public'    => ['sometimes', 'boolean'],
+            // 'difficulty'   => ['sometimes', 'string', 'max:255', Rule::enum(RecipeDifficultyEnum::class)],
         ];
     }
 }

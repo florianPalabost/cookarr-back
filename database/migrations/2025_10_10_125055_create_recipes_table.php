@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('prep_time')->nullable();
             $table->integer('cook_time')->nullable();
             $table->integer('servings')->nullable();
+            // $table->string('difficulty')->nullable();
             $table->boolean('is_public')->default(false);
 
             $table->timestamps();
