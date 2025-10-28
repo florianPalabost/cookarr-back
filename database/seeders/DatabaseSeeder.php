@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Models\Ingredient;
-use App\Models\IngredientRecipe;
 use App\Models\Recipe;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -23,14 +22,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Ingredient::factory(10)->create();
-
-        $recipes = Recipe::factory(10)->create();
+        $recipes = Recipe::factory(100)->create();
 
         $recipes->each(function (Recipe $recipe) {
-            $recipe->ingredients()->saveMany(Ingredient::factory(5)->make());
+            $ingredientsCount = random_int(5, 12);
+            $recipe->ingredients()->saveMany(Ingredient::factory($ingredientsCount)->make());
         });
-
-        // IngredientRecipe::factory(10)->create();
     }
 }

@@ -21,8 +21,14 @@ class IngredientFactory extends Factory
      */
     public function definition(): array
     {
+        $ingredients = [
+            'chicken breast', 'olive oil', 'garlic', 'onion', 'salt', 'pepper', 'tomato', 'basil',
+            'flour', 'sugar', 'butter', 'milk', 'egg', 'rice', 'carrot', 'potato', 'beef', 'lemon',
+            'soy sauce', 'ginger', 'cinnamon', 'mushroom', 'cheese', 'cream', 'spinach',
+        ];
+
         return [
-            'name'         => fake()->unique(true)->word() . Str::random(25),
+            'name'         => fake()->randomElement($ingredients) . Str::random(5),
             'default_unit' => fake()->randomElement(IngredientUnitEnum::values()),
             'category'     => fake()->randomElement(IngredientCategoryEnum::values()),
         ];
