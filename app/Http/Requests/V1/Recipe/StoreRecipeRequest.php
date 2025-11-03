@@ -24,14 +24,18 @@ class StoreRecipeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'        => ['required', 'string', 'max:255'],
-            'description'  => ['sometimes', 'string', 'max:255'],
-            'instructions' => ['sometimes', 'string', 'max:65535'],
-            'image'        => ['sometimes', 'string', 'max:255'],
-            'prep_time'    => ['sometimes', 'numeric', 'min:0', 'max:999'],
-            'cook_time'    => ['sometimes', 'numeric', 'min:0', 'max:999'],
-            'servings'     => ['sometimes', 'numeric', 'min:0', 'max:999'],
-            'is_public'    => ['sometimes', 'boolean'],
+            'title'          => ['required', 'string', 'max:255'],
+            'description'    => ['sometimes', 'string', 'max:255'],
+            'instructions'   => ['sometimes', 'array', 'min:1'],
+            'instructions.*' => ['required', 'string'],
+            'image'          => ['sometimes', 'string', 'max:255'],
+            'prep_time'      => ['sometimes', 'numeric', 'min:0', 'max:999'],
+            'cook_time'      => ['sometimes', 'numeric', 'min:0', 'max:999'],
+            'servings'       => ['sometimes', 'numeric', 'min:0', 'max:999'],
+            'is_public'      => ['sometimes', 'boolean'],
+
+            'ingredients'    => ['required', 'array', 'min:1'],
+            'ingredients.*'  => ['required', 'string'],
             // 'difficulty'   => ['sometimes', 'string', 'max:255', Rule::enum(RecipeDifficultyEnum::class)],
         ];
     }
